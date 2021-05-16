@@ -1,1 +1,1 @@
-web: gunicorn Planner.wsgi --log-file -
+web: gunicorn music_spotlight.wsgi --log-file -

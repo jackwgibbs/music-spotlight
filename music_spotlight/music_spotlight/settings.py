@@ -26,7 +26,7 @@ SECRET_KEY = 'u270&k0(1fxkib2_=(l=&6na=)q-iyvtmln(804xy9a#4g7f19'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['musicspotlight.herokuapp.com']
+ALLOWED_HOSTS = ['musicspotlight.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -122,3 +122,7 @@ USE_TZ = True
 PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
 STATIC_ROOT  =   os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]

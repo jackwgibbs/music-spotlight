@@ -10,7 +10,7 @@ from .models import *
 from django.db import models
 
 
-def index(request):
+def register(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = UserForm(request.POST)
@@ -33,9 +33,9 @@ def index(request):
     else:
         form = UserForm()
 
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'register.html', {'form': form})
 
-def login(request):
+def index(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
         form = UserLoginForm(request.POST)
@@ -52,12 +52,13 @@ def login(request):
                 return redirect('home')
             else:
                 print("No")
-                return redirect('login')
+
+                return redirect('/')
 
     else:
         form = UserLoginForm()
 
-    return render(request, 'login.html', {'form': form})
+    return render(request, 'index.html', {'form': form})
 
 def home(request):
     return render(request, 'home.html')

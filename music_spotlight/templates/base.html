@@ -1,8 +1,11 @@
 <!DOCTYPE html>
-
+{% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}ExeHub{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'music_spotlight_app/style/style.css' %}">
+    {% block links %}
+    {% endblock %}
+    <title>{% block title %}Music Spotlight{% endblock %}</title>
 </head>
 
 <body>

@@ -1,19 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block links %}
-{% endblock %}
-
 {% block content %}
-    <h1>Music Spotlight</h1>
-    <p><a href = "/register">Register</a></p>
-
-    <h1>Login!</h1>
-    <form action="/" method="post">
+    <h1>Register!</h1>
+    <form action="" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit" value="Submit">
     </form>
 
+    <p>Already got an account? <a href="/index">Sign in here</a></p>
 
 {% endblock %}
