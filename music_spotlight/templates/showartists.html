@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+{% endblock %}
+
+{% block content %}
+    <h1>Show Artists</h1>
+    <h1>Artists</h1>
+    {% for artist in context %}
+        {{artist.artistName}}
+        <br>
+    {% endfor %}
+
+
+
+
+<p><a href="/home">Home</a></p>
+{% endblock %}
+

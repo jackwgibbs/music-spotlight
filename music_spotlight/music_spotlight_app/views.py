@@ -7,7 +7,6 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from .forms import *
 from .models import *
-from django.db import models
 
 
 def register(request):
@@ -35,6 +34,7 @@ def register(request):
 
     return render(request, 'register.html', {'form': form})
 
+
 def index(request):
     if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -60,5 +60,60 @@ def index(request):
 
     return render(request, 'index.html', {'form': form})
 
+
 def home(request):
     return render(request, 'home.html')
+
+
+def newArtist(request):
+    form = NewArtist(request.POST)
+    if form.is_valid():
+        # process the data in form.cleaned_data as required
+        artistName = form.cleaned_data['artistName']
+
+        artists = Artists.objects.all()
+        print(artists[0])
+
+        artist = Artists(artistName=artistName)
+        try:
+            artist.save()
+        except:
+            print("Duplicate")
+
+        artists = Artists.objects.all()
+        print(artists[0])
+
+        return redirect('/showartists')
+
+    else:
+        form = NewArtist()
+
+    return render(request, 'newartist.html', {'form': form})
+
+
+def showArtists(request):
+    artists = Artists.objects.all()
+    print(artists[0])
+    context = {'context': artists}
+    return render(request, 'showartists.html', context=context)
+
+
+def newAlbum(request):
+    form = NewAlbum(request.POST)
+    if form.is_valid():
+        # process the data in form.cleaned_data as required
+        albumName = form.cleaned_data['albumName']
+
+        album = Album()
+        try:
+            album.save()
+        except:
+            print("Duplicate")
+
+        return redirect('/')
+
+    else:
+        form = NewAlbum()
+
+    return render(request, 'newalbum.html', {'form': form})
+
