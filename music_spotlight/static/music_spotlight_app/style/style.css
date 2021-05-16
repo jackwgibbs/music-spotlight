@@ -5,3 +5,14 @@
 h1{
     font-size: 40px;
 }
+
+#footer{
+    top:98%;
+    height:2%;
+    position:fixed;
+    width:100%;
+    z-index: 10;
+    text-align: right;
+
+
+}

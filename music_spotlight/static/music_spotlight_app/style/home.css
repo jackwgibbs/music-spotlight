@@ -1,0 +1,30 @@
+#banner{
+    background-color: darkcyan;
+    height:500px;
+    width:100%;
+}
+
+#body{
+    width:80%;
+    left:10%;
+    background-color: white;
+    position:absolute;
+    top:400px;
+    z-index: 10;
+}
+
+#left{
+    position:absolute;
+    width:60%;
+    background-color: white;
+    height:400px;
+
+}
+#right{
+    position:absolute;
+    width:40%;
+    left:60%;
+    background-color: white;
+    height:400px;
+
+}

@@ -2,18 +2,36 @@
 {% load static %}
 
 {% block links %}
+    <link rel="stylesheet" type="text/css" href="{% static 'music_spotlight_app/style/home.css' %}">
 {% endblock %}
 
 {% block content %}
-    <h1>Music Spotlight</h1>
-    <p><a href = "/register">Register</a></p>
+    <div id ="banner">
 
-    <h1>Login!</h1>
-    <form action="/" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit">
-    </form>
+    </div>
+
+    <div id="body">
+        <div id="left">
+            <h1>Music Spotlight</h1>
+        </div>
+
+        <div id="right">
+            <h4>Login</h4>
+            <form action="/" method="post">
+                {% csrf_token %}
+                {% for field in form  %}
+                    {{ field.label_tag }} {{ field }}
+                    <br><br>
+                {% endfor %}
+                <input type="submit" value="Submit">
+            </form>
+                <p>Don't have an account? <a href="/register">Sign up here</a></p>
+        </div>
+
+
+    </div>
+
+
 
 
 {% endblock %}
