@@ -18,4 +18,4 @@ python manage.py runserver
 
 The web app will then be accessible at the following location: http://127.0.0.1:8000/
 
-#Live Website The website can be viewed at the following address: https://dashboard.heroku.com/apps/musicspotlight
+#Live Website The website can be viewed at the following address: https://musicspotlight.herokuapp.com/
