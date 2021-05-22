@@ -7,6 +7,7 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from .forms import *
 from .models import *
+from django.contrib import messages
 
 
 def register(request):
@@ -47,6 +48,7 @@ def index(request):
             password = form.cleaned_data['password']
 
             user = Users.objects.filter(email=email, password=password)
+            print(user)
             if user:
                 print("Yes")
                 return redirect('home')
@@ -93,9 +95,14 @@ def newArtist(request):
 
 def showArtists(request):
     artists = Artists.objects.all()
-    print(artists[0])
     context = {'context': artists}
     return render(request, 'showartists.html', context=context)
+
+
+def showAlbums(request):
+    albums = Album.objects.all()
+    context = {'context': albums}
+    return render(request, 'showalbums.html', context=context)
 
 
 def newAlbum(request):
@@ -103,14 +110,11 @@ def newAlbum(request):
     if form.is_valid():
         # process the data in form.cleaned_data as required
         albumName = form.cleaned_data['albumName']
-
-        album = Album()
-        try:
-            album.save()
-        except:
-            print("Duplicate")
-
-        return redirect('/')
+        artist = form.cleaned_data['albumArtist']
+        noSongs = form.cleaned_data['noSongs']
+        album = Album(albumName=albumName, albumArtist=artist, noSongs=noSongs)
+        album.save()
+        return redirect('/showalbums')
 
     else:
         form = NewAlbum()
