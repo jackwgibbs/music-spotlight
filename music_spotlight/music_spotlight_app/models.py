@@ -13,10 +13,11 @@ class Users(models.Model):
 class Artists(models.Model):
     artistName = models.CharField(max_length=150, unique=True)
 
+    def __str__(self):
+        return self.artistName
+
 
 class Album(models.Model):
     albumName = models.CharField(max_length=100)
     albumArtist = models.ForeignKey('Artists', models.DO_NOTHING)
     noSongs = models.IntegerField()
-
-

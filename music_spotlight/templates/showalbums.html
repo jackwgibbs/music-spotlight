@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+{% endblock %}
+
+{% block content %}
+    <h1>Show Albums</h1>
+    <h1>Albums</h1>
+    {% for album in context %}
+        <b>Album Name: </b>{{album.albumName}}
+        <b>by </b>{{album.albumArtist}}
+        <b>Number of Songs: </b>{{album.noSongs}}
+        <br>
+    {% endfor %}
+
+
+
+
+<p><a href="/home">Home</a></p>
+{% endblock %}
+

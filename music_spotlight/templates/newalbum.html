@@ -5,15 +5,27 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Add New Album</h1>
+     <div id ="banner">
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Submit">
-    </form>
+    </div>
 
-    <p><a href="/home">Home</a></p>
+     <div id="body">
+        <h1>Add New Album</h1>
+         <p>Is there an album not on our system? Add it here...</p>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for field in form  %}
+                    {{ field.label_tag }} {{ field }}
+                    <br><br>
+                {% endfor %}
+            <input type="submit" value="Submit">
+            <p>Don't see the artist in the dropdown list? Add their profile to our system <a href="/newartist">here!</a></p>
+        </form>
+
+        <p><a href="/home">Home</a></p>
+
+     </div>
 
 
 {% endblock %}

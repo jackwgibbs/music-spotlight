@@ -13,6 +13,31 @@ h1{
     width:100%;
     z-index: 10;
     text-align: right;
+}
+
+#banner{
+    background-color: darkcyan;
+    height:500px;
+    width:100%;
+}
+
+#body{
+    width:80%;
+    left:10%;
+    background-color: white;
+    position:absolute;
+    top:400px;
+    z-index: 10;
+}
 
 
+#registerbody{
+    width:80%;
+    left:10%;
+    background-color: white;
+    position:absolute;
+    top:400px;
+    z-index: 10;
+    text-align: center;
+    height:400px;
 }

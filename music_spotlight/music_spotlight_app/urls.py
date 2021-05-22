@@ -9,5 +9,6 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('newartist/', views.newArtist, name='newArtist'),
     path('showartists/', views.showArtists, name='showArtists'),
+    path('showalbums/', views.showAlbums, name='showAlbums'),
     path('newalbum/', views.newAlbum, name='newAlbum'),
 ]

@@ -7,18 +7,20 @@
     <div id ="banner">
 
     </div>
-    <div id="body">
+    <div id="registerbody">
 
         <h1>Register</h1>
-    <form action="" method="post">
-        {% csrf_token %}
-        {% for field in form  %}
-                {{ field.label_tag }} {{ field }}
-                <br><br>
-            {% endfor %}
-        <input type="submit" value="Submit">
-    </form>
+        <form action="" method="post">
+            {% csrf_token %}
+            {% for field in form  %}
+                    {{ field.label_tag }} {{ field }}
+                    <br><br>
+                {% endfor %}
+            <label>I agree to the terms and conditions</label><input type="checkbox"><br><br>
+            <input type="submit" value="Submit">
+        </form>
 
-    <p>Already got an account? <a href="/index">Sign in here</a></p>
+        <p>Already got an account? <a href="/index">Sign in here</a></p>
     </div>
+
 {% endblock %}
